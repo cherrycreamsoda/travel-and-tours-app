@@ -1,42 +1,38 @@
+import { Route, Routes, Link } from 'react-router-dom';
 import './App.css';
+
 import Explore from './pages/Explore';
 import Home from './pages/Home';
 import PlanYourTrip from './pages/PlanYourTrip';
 import Tours from './pages/Tours';
 
-const pages = [
-  { label: 'Home', path: '/', component: Home },
-  { label: 'Tours', path: '/tours', component: Tours },
-  { label: 'Explore', path: '/explore', component: Explore },
-  { label: 'Plan Your Trip', path: '/plan-your-trip', component: PlanYourTrip },
-];
+import Navbar from './componenets/Navbar';
+import Footer from './componenets/Footer';
 
-function App() {
-  const Page = pages.find(({ path }) => path === window.location.pathname)?.component || Home;
+
+function App(){
 
   return (
     <div className="app">
-      <header className="appHeader">
-        <a className="appLogo" href="/">
-          Tours &amp; Travels
-        </a>
 
-        <nav className="appNav">
-          {pages.map((page) => (
-            <a key={page.path} href={page.path}>
-              {page.label}
-            </a>
-          ))}
-        </nav>
+      <header className="appHeader">
+        <Link className="appLogo" to="/">
+          Tours &amp; Travels
+        </Link>
+        <Navbar />
       </header>
 
       <main className="pageContent">
-        <Page />
+        <Routes>
+          <Route path={"/"} element={<Home />} />
+          <Route path={"/tours"} element={<Tours />} />
+          <Route path={"/explore"} element={<Explore />} />
+          <Route path={"/plan-your-trip"} element={<PlanYourTrip />} />
+        </Routes>
       </main>
 
-      <footer className="appFooter">
-        <p>&copy; 2026 Tours &amp; Travels. All rights reserved.</p>
-      </footer>
+      <Footer />
+
     </div>
   );
 }

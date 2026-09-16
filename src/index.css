@@ -18,6 +18,7 @@
   --appTextColor: var(--lightModeColor1);
   --appMutedColor: var(--lightModeColor4);
   --appBorderColor: var(--lightModeColor3);
+  --appSecondaryBackground: var(--lightModeColor2);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -26,6 +27,7 @@
     --appTextColor: var(--darkModeColor1);
     --appMutedColor: var(--darkModeColor2);
     --appBorderColor: var(--darkModeColor4);
+    --appSecondaryBackground: var(--darkModeColor4);
   }
 }
 
@@ -36,6 +38,10 @@ body {
   color: var(--appTextColor);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  overflow-y: scroll;
 }
 
 code {

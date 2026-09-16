@@ -57,3 +57,28 @@
   margin: 0;
   color: var(--appMutedColor);
 }
+
+.homePage {
+  min-height: calc(100vh - 48px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  padding: 24px;
+  box-sizing: border-box;
+}
+
+.sliderDestinations {
+  width: 100%;
+  min-height: 75vh;
+  background: var(--appSecondaryBackground);
+}
+
+.letsGoButton {
+  padding: 12px 24px;
+  border: 1px solid var(--appBorderColor);
+  background: var(--appTextColor);
+  color: var(--appBackground);
+  cursor: pointer;
+  text-decoration: none;
+}
