@@ -1,3 +1,59 @@
-.App {
-  text-align: center;
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.appHeader,
+.appFooter {
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+  border-color: var(--appBorderColor);
+}
+
+.appHeader {
+  position: relative;
+  border-bottom: 1px solid var(--appBorderColor);
+}
+
+.appLogo {
+  color: var(--appTextColor);
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.appNav {
+  position: absolute;
+  left: 50%;
+  display: flex;
+  gap: 24px;
+  transform: translateX(-50%);
+}
+
+.appNav a {
+  color: var(--appTextColor);
+  text-decoration: none;
+}
+
+.appNav a:hover,
+.appNav a:focus-visible,
+.appLogo:hover,
+.appLogo:focus-visible {
+  color: var(--ghostWhite);
+}
+
+.pageContent {
+  flex: 1;
+}
+
+.appFooter {
+  border-top: 1px solid var(--appBorderColor);
+  justify-content: center;
+}
+
+.appFooter p {
+  margin: 0;
+  color: var(--appMutedColor);
 }

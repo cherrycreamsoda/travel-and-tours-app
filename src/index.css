@@ -1,8 +1,39 @@
+:root {
+  /* Light mode: color 1 is lightest and color 4 is darkest. */
+  --lightModeBg: #a577fd;
+  --lightModeColor1: #ede4fe;
+  --lightModeColor2: #ddc9ff;
+  --lightModeColor3: #caafff;
+  --lightModeColor4: #b892ff;
+
+  /* Dark mode: color 1 is lightest and color 4 is darkest. */
+  --darkModeBg: #160a35;
+  --darkModeColor1: #d0cfd8;
+  --darkModeColor2: #a29daf;
+  --darkModeColor3: #726d87;
+  --darkModeColor4: #463b5f;
+
+  --ghostWhite: #f5f7fb;
+  --appBackground: var(--lightModeBg);
+  --appTextColor: var(--lightModeColor1);
+  --appMutedColor: var(--lightModeColor4);
+  --appBorderColor: var(--lightModeColor3);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --appBackground: var(--darkModeBg);
+    --appTextColor: var(--darkModeColor1);
+    --appMutedColor: var(--darkModeColor2);
+    --appBorderColor: var(--darkModeColor4);
+  }
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: Arial, sans-serif;
+  background: var(--appBackground);
+  color: var(--appTextColor);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
