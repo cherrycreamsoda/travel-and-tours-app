@@ -2,6 +2,29 @@ import { useState } from 'react';
 import testimonialsData from '../../../data/testimonials';
 import './CustomerFeedback.css';
 
+function getTimeAgo(createdAt) {
+  const elapsedSeconds = Math.max(
+    0,
+    Math.floor((Date.now() - new Date(createdAt).getTime()) / 1000),
+  );
+
+  if (elapsedSeconds < 60) return 'Just now';
+
+  const elapsedMinutes = Math.floor(elapsedSeconds / 60);
+  if (elapsedMinutes < 60) return `${elapsedMinutes} minutes ago`;
+
+  const elapsedHours = Math.floor(elapsedMinutes / 60);
+  if (elapsedHours < 24) return `${elapsedHours} hours ago`;
+
+  const elapsedDays = Math.floor(elapsedHours / 24);
+  if (elapsedDays < 30) return `${elapsedDays} days ago`;
+
+  const elapsedMonths = Math.floor(elapsedDays / 30);
+  if (elapsedMonths < 12) return `${elapsedMonths} months ago`;
+
+  return `${Math.floor(elapsedMonths / 12)} years ago`;
+}
+
 function CustomerFeedback() {
   const [testimonials, setTestimonials] = useState(testimonialsData);
   const [feedback, setFeedback] = useState({
@@ -10,6 +33,7 @@ function CustomerFeedback() {
     lastName: '',
     email: '',
     rating: 0,
+    createdAt: '',
   });
 
   function handleChange(event) {
@@ -23,11 +47,16 @@ function CustomerFeedback() {
 
   function handleSubmit(event) {
     event.preventDefault();
+    const submittedFeedback = {
+      ...feedback,
+      createdAt: new Date().toISOString(),
+    };
+
     setTestimonials((currentTestimonials) => [
       ...currentTestimonials,
-      feedback,
+      submittedFeedback,
     ]);
-    console.log('Customer feedback:', feedback);
+    console.log('Customer feedback:', submittedFeedback);
   }
 
   return (
@@ -102,6 +131,10 @@ function CustomerFeedback() {
               <h4 className="testimonialName">
                 {testimonial.firstName} {testimonial.lastName}
               </h4>
+              <time className="testimonialDate" dateTime={testimonial.createdAt}>
+                {new Date(testimonial.createdAt).toLocaleDateString()} ·{' '}
+                {getTimeAgo(testimonial.createdAt)}
+              </time>
               <div className="testimonialRating">
                 {'★'.repeat(Number(testimonial.rating))}
               </div>

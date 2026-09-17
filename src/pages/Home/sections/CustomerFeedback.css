@@ -104,6 +104,13 @@
   color: var(--appMutedColor);
 }
 
+.testimonialDate {
+  display: block;
+  margin-top: 6px;
+  color: var(--appMutedColor);
+  font-size: 0.85rem;
+}
+
 .testimonialRating {
   margin-top: 12px;
   color: var(--ghostWhite);

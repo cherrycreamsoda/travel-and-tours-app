@@ -10,7 +10,7 @@
 
 .homeHero {
   width: 100%;
-  min-height: 75vh;
+  min-height: calc(100vh - 168px);
   background: var(--appSecondaryBackground);
 }
 
