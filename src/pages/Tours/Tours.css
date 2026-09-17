@@ -26,6 +26,7 @@
 }
 
 .tourListItem {
+  position: relative;
   padding: 24px;
   border: 1px solid var(--appBorderColor);
   background: var(--appSecondaryBackground);
@@ -93,7 +94,24 @@
 
 .tourListDescription {
   margin: 0;
+  padding-right: 56px;
   line-height: 1.6;
+}
+
+.tourDetailsButton {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  display: flex;
+  width: 40px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--appTextColor);
+  color: var(--appBackground);
+  font-size: 1.25rem;
+  text-decoration: none;
 }
 
 @media (max-width: 500px) {

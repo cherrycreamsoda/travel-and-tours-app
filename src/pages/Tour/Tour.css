@@ -1,0 +1,38 @@
+.tourPage {
+  min-height: calc(100vh - 48px);
+  padding: 24px;
+  box-sizing: border-box;
+}
+
+.tourPageHeader {
+  max-width: 1200px;
+  margin: 0 auto 24px;
+}
+
+.backToTours {
+  color: var(--appTextColor);
+}
+
+.tourPageHeader h1 {
+  margin: 20px 0 8px;
+  font-size: 2.25rem;
+}
+
+.tourPageHeader p {
+  margin: 0;
+  color: var(--appMutedColor);
+}
+
+.tourPageTopRow {
+  display: grid;
+  max-width: 1200px;
+  grid-template-columns: 2fr 1fr;
+  gap: 24px;
+  margin: 0 auto;
+}
+
+@media (max-width: 800px) {
+  .tourPageTopRow {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,16 @@
+.tourWidgetsSection {
+  display: grid;
+  min-width: 0;
+  grid-template-rows: 1fr 1fr;
+  gap: 24px;
+}
+
+.tourWidget {
+  display: flex;
+  min-height: 210px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--appBorderColor);
+  background: var(--appSecondaryBackground);
+  color: var(--appMutedColor);
+}

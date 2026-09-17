@@ -5,6 +5,7 @@ import Explore from './pages/Explore/Explore';
 import Home from './pages/Home/Home';
 import PlanYourTrip from './pages/PlanYourTrip/PlanYourTrip';
 import Tours from './pages/Tours/Tours';
+import Tour from './pages/Tour/Tour';
 
 import Navbar from './componenets/Navbar';
 import Footer from './componenets/Footer';
@@ -26,6 +27,7 @@ function App(){
         <Routes>
           <Route path={"/"} element={<Home />} />
           <Route path={"/tours"} element={<Tours />} />
+          <Route path={"/tours/:tourSlug"} element={<Tour />} />
           <Route path={"/explore"} element={<Explore />} />
           <Route path={"/plan-your-trip"} element={<PlanYourTrip />} />
         </Routes>

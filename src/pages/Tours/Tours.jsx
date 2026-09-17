@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import tours from '../../data/tours';
 import './Tours.css';
 
@@ -28,6 +29,9 @@ function Tours() {
               ))}
             </ul>
             <p className="tourListDescription">{tour.description}</p>
+            <Link className="tourDetailsButton" to={tour.link}>
+              ↗
+            </Link>
           </article>
         ))}
       </div>

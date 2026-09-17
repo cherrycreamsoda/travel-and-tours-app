@@ -1,0 +1,63 @@
+.tourImagesSection {
+  min-width: 0;
+}
+
+.selectedTourImage {
+  position: relative;
+  height: 460px;
+  overflow: hidden;
+  background: var(--appSecondaryBackground);
+}
+
+.selectedTourImage img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.tourImageList {
+  display: flex;
+  gap: 12px;
+  margin-top: 12px;
+  overflow-x: auto;
+}
+
+.tourImageList button {
+  position: relative;
+  flex: 0 0 200px;
+  height: 125px;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid var(--appBorderColor);
+  background: var(--appSecondaryBackground);
+  cursor: pointer;
+}
+
+.tourImageList button.selectedThumbnail {
+  border-color: var(--ghostWhite);
+}
+
+.tourImageList img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.tourImageList span {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  left: 0;
+  transform: translateY(-50%);
+  color: var(--ghostWhite);
+  text-align: center;
+  text-shadow: 0 1px 4px rgb(0 0 0 / 70%);
+}
+
+@media (max-width: 800px) {
+  .selectedTourImage {
+    height: 360px;
+  }
+}
