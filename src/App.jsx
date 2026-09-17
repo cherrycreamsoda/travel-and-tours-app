@@ -1,10 +1,10 @@
 import { Route, Routes, Link } from 'react-router-dom';
 import './App.css';
 
-import Explore from './pages/Explore';
-import Home from './pages/Home';
-import PlanYourTrip from './pages/PlanYourTrip';
-import Tours from './pages/Tours';
+import Explore from './pages/Explore/Explore';
+import Home from './pages/Home/Home';
+import PlanYourTrip from './pages/PlanYourTrip/PlanYourTrip';
+import Tours from './pages/Tours/Tours';
 
 import Navbar from './componenets/Navbar';
 import Footer from './componenets/Footer';

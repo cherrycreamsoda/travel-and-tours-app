@@ -1,0 +1,58 @@
+.teamSection {
+  width: 100%;
+  text-align: center;
+}
+
+.teamSection h2 {
+  margin: 0 0 16px;
+  text-transform: capitalize;
+}
+
+.teamGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.teamCard {
+  padding: 20px;
+  border: 1px solid var(--appBorderColor);
+  background: var(--appSecondaryBackground);
+  text-align: left;
+}
+
+.teamCard h3 {
+  margin: 0 0 16px;
+}
+
+.teamImage {
+  display: flex;
+  min-height: 180px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+  background: var(--appBackground);
+  color: var(--appMutedColor);
+}
+
+.teamCard p {
+  margin: 0 0 12px;
+  color: var(--appMutedColor);
+}
+
+.teamCard span {
+  color: var(--appTextColor);
+  font-weight: bold;
+}
+
+@media (max-width: 900px) {
+  .teamGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 500px) {
+  .teamGrid {
+    grid-template-columns: 1fr;
+  }
+}

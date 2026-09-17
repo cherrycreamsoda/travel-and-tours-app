@@ -1,0 +1,120 @@
+.customerFeedbackSection {
+  width: 100%;
+  text-align: center;
+}
+
+.customerFeedbackSection h2 {
+  margin: 0 0 16px;
+  text-transform: capitalize;
+}
+
+.customerFeedbackForm {
+  display: grid;
+  max-width: 720px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.customerFeedbackForm label,
+.feedbackRating {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.customerFeedbackForm label:first-child,
+.feedbackRating,
+.reviewButton {
+  grid-column: 1 / -1;
+}
+
+.customerFeedbackForm input,
+.customerFeedbackForm textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px;
+  border: 1px solid var(--appBorderColor);
+  background: var(--appSecondaryBackground);
+  color: var(--appTextColor);
+  font: inherit;
+}
+
+.customerFeedbackForm textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.ratingStars {
+  display: flex;
+  gap: 8px;
+}
+
+.ratingStars button {
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--appBorderColor);
+  background: transparent;
+  color: var(--appMutedColor);
+  cursor: pointer;
+}
+
+.ratingStars button.selectedStar {
+  background: var(--appTextColor);
+  color: var(--appBackground);
+}
+
+.reviewButton {
+  padding: 12px 24px;
+  border: 1px solid var(--appBorderColor);
+  background: var(--appTextColor);
+  color: var(--appBackground);
+  cursor: pointer;
+}
+
+.testimonials {
+  max-width: 900px;
+  margin: 32px auto 0;
+}
+
+.testimonials h3 {
+  margin: 0 0 16px;
+}
+
+.testimonialsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  text-align: left;
+}
+
+.testimonialCard {
+  padding: 16px;
+  border: 1px solid var(--appBorderColor);
+  background: var(--appSecondaryBackground);
+}
+
+.testimonialCard p {
+  margin: 0 0 12px;
+}
+
+.testimonialName {
+  margin: 0;
+  color: var(--appMutedColor);
+}
+
+.testimonialRating {
+  margin-top: 12px;
+  color: var(--ghostWhite);
+}
+
+@media (max-width: 600px) {
+  .customerFeedbackForm {
+    grid-template-columns: 1fr;
+  }
+
+  .testimonialsGrid {
+    grid-template-columns: 1fr;
+  }
+}
