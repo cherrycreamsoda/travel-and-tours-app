@@ -3,3 +3,137 @@
   padding: 24px;
   box-sizing: border-box;
 }
+
+.plannerHeader {
+  max-width: 900px;
+  margin: 0 auto 32px;
+  text-align: center;
+}
+
+.plannerHeader h1 {
+  margin: 0 0 8px;
+}
+
+.plannerHeader p {
+  margin: 0;
+  color: var(--appMutedColor);
+}
+
+.plannerForm {
+  display: grid;
+  max-width: 900px;
+  gap: 16px;
+  margin: 0 auto;
+}
+
+.plannerBlock {
+  display: grid;
+  gap: 16px;
+  padding: 20px;
+  border: 1px solid var(--appBorderColor);
+  background: var(--appSecondaryBackground);
+}
+
+.plannerRouteBlock {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 2fr) auto;
+}
+
+.plannerNameBlock {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.plannerRouteBlock .plannerPrice {
+  align-self: end;
+  color: var(--ghostWhite);
+}
+
+.plannerBlock label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.plannerBlock input,
+.plannerBlock textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px;
+  border: 1px solid var(--appBorderColor);
+  background: var(--appBackground);
+  color: var(--appTextColor);
+  font: inherit;
+}
+
+.plannerDestinationField {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.plannerDestinationDropdown {
+  position: relative;
+}
+
+.plannerDestinationTrigger {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  border: 1px solid var(--appBorderColor);
+  background: var(--appBackground);
+  color: var(--appTextColor);
+  font: inherit;
+  cursor: pointer;
+}
+
+.plannerDestinationTrigger span {
+  color: var(--appMutedColor);
+  font-size: 1.2rem;
+}
+
+.plannerDestinationMenu {
+  position: absolute;
+  z-index: 2;
+  top: calc(100% + 4px);
+  right: 0;
+  left: 0;
+  display: grid;
+  gap: 4px;
+  padding: 8px;
+  border: 1px solid var(--appBorderColor);
+  background: var(--appBackground);
+  box-shadow: 0 8px 20px rgb(0 0 0 / 25%);
+}
+
+.plannerDestinationOption {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 10px;
+  align-items: center;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.plannerDestinationOption:hover {
+  background: var(--appSecondaryBackground);
+}
+
+.plannerDestinationOption input {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--appTextColor);
+}
+
+.plannerBlock textarea {
+  min-height: 140px;
+  resize: vertical;
+}
+
+@media (max-width: 650px) {
+  .plannerRouteBlock,
+  .plannerNameBlock {
+    grid-template-columns: 1fr;
+  }
+
+}
