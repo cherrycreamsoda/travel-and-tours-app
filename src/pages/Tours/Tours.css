@@ -3,3 +3,107 @@
   padding: 24px;
   box-sizing: border-box;
 }
+
+.toursHeader {
+  margin-bottom: 32px;
+  text-align: center;
+}
+
+.toursHeader h1 {
+  margin: 0 0 8px;
+}
+
+.toursHeader p {
+  margin: 0;
+  color: var(--appMutedColor);
+}
+
+.toursList {
+  display: grid;
+  max-width: 1000px;
+  gap: 24px;
+  margin: 0 auto;
+}
+
+.tourListItem {
+  padding: 24px;
+  border: 1px solid var(--appBorderColor);
+  background: var(--appSecondaryBackground);
+}
+
+.tourListHeader {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.tourListHeader h2 {
+  margin: 0;
+}
+
+.tourListPrice {
+  color: var(--ghostWhite);
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.tourListDuration {
+  color: var(--appMutedColor);
+}
+
+.tourListItem h3 {
+  margin-bottom: 8px;
+}
+
+.tourDestinationsList {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin: 0 0 20px;
+  padding: 0;
+  list-style: none;
+}
+
+.tourDestinationsList li {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--appBorderColor);
+  background: var(--appBackground);
+}
+
+.tourDestinationsList img {
+  display: block;
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  background: var(--appSecondaryBackground);
+}
+
+.tourDestinationsList span {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  left: 0;
+  transform: translateY(-50%);
+  color: var(--ghostWhite);
+  text-align: center;
+  text-shadow: 0 1px 4px rgb(0 0 0 / 70%);
+}
+
+.tourListDescription {
+  margin: 0;
+  line-height: 1.6;
+}
+
+@media (max-width: 500px) {
+  .tourListHeader {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .tourDestinationsList {
+    grid-template-columns: 1fr;
+  }
+}
