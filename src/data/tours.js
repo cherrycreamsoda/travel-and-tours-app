@@ -6,10 +6,11 @@ const tours = [
     slug: 'tour-name-1',
     destinations: [destinations[0], destinations[1], destinations[2]],
     itinerary: [
-      { day: 'Day 1', activity: 'Leave from meeting point' },
-      { day: 'Day 1', destination: destinations[0] },
-      { day: 'Day 2', activity: 'Having lunch' },
-      { day: 'Day 3', destination: destinations[1] },
+      { day: 'Day 1', time: '2:00pm', activity: 'Leave from designated pickup location to', destination: destinations[0] },
+      { day: 'Day 1', time: '6:15pm', activity: 'Reach Hotel' },
+      { day: 'Day 1', time: '7:00pm', activity: 'Have lunch' },
+      { day: 'Day 2', time: '9:00am', activity: 'Explore', destination: destinations[1] },
+      { day: 'Day 3', time: '10:00am', activity: 'Visit', destination: destinations[2] },
     ],
     days: '5 days',
     description:
@@ -22,10 +23,11 @@ const tours = [
     slug: 'tour-name-2',
     destinations: [destinations[1], destinations[2], destinations[3]],
     itinerary: [
-      { day: 'Day 1', activity: 'Leave from meeting point' },
-      { day: 'Day 1', destination: destinations[1] },
-      { day: 'Day 2', activity: 'Having lunch' },
-      { day: 'Day 3', destination: destinations[2] },
+      { day: 'Day 1', time: '2:00pm', activity: 'Leave from designated pickup location to', destination: destinations[1] },
+      { day: 'Day 1', time: '6:15pm', activity: 'Reach Hotel' },
+      { day: 'Day 1', time: '7:00pm', activity: 'Have lunch' },
+      { day: 'Day 2', time: '9:00am', activity: 'Explore', destination: destinations[2] },
+      { day: 'Day 3', time: '10:00am', activity: 'Visit', destination: destinations[3] },
     ],
     days: '7 days',
     description:
@@ -38,10 +40,11 @@ const tours = [
     slug: 'tour-name-3',
     destinations: [destinations[2], destinations[3], destinations[4]],
     itinerary: [
-      { day: 'Day 1', activity: 'Leave from meeting point' },
-      { day: 'Day 1', destination: destinations[2] },
-      { day: 'Day 2', activity: 'Having lunch' },
-      { day: 'Day 3', destination: destinations[3] },
+      { day: 'Day 1', time: '2:00pm', activity: 'Leave from designated pickup location to', destination: destinations[2] },
+      { day: 'Day 1', time: '6:15pm', activity: 'Reach Hotel' },
+      { day: 'Day 1', time: '7:00pm', activity: 'Have lunch' },
+      { day: 'Day 2', time: '9:00am', activity: 'Explore', destination: destinations[3] },
+      { day: 'Day 3', time: '10:00am', activity: 'Visit', destination: destinations[4] },
     ],
     days: '4 days',
     description:
@@ -54,10 +57,11 @@ const tours = [
     slug: 'tour-name-4',
     destinations: [destinations[4], destinations[0], destinations[1]],
     itinerary: [
-      { day: 'Day 1', activity: 'Leave from meeting point' },
-      { day: 'Day 1', destination: destinations[4] },
-      { day: 'Day 2', activity: 'Having lunch' },
-      { day: 'Day 3', destination: destinations[0] },
+      { day: 'Day 1', time: '2:00pm', activity: 'Leave from designated pickup location to', destination: destinations[4] },
+      { day: 'Day 1', time: '6:15pm', activity: 'Reach Hotel' },
+      { day: 'Day 1', time: '7:00pm', activity: 'Have lunch' },
+      { day: 'Day 2', time: '9:00am', activity: 'Explore', destination: destinations[0] },
+      { day: 'Day 3', time: '10:00am', activity: 'Visit', destination: destinations[1] },
     ],
     days: '6 days',
     description:

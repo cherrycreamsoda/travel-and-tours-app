@@ -13,21 +13,33 @@
   margin-top: 0;
 }
 
-.tourItinerary ol {
+.itineraryDays {
   display: grid;
   gap: 16px;
+}
+
+.itineraryDay h3 {
+  margin: 0 0 8px;
+}
+
+.itineraryDay ul {
+  display: grid;
+  gap: 8px;
   margin: 0;
-  padding-left: 24px;
+  padding-left: 20px;
 }
 
-.tourItinerary li {
-  padding-left: 8px;
+.itineraryDay li {
+  padding-left: 4px;
 }
 
-.tourItinerary li span {
-  display: block;
-  margin-bottom: 4px;
+.itineraryTime {
+  margin-right: 8px;
   color: var(--appMutedColor);
+}
+
+.itineraryActivity {
+  margin-right: 4px;
 }
 
 .tourItinerary a {
