@@ -29,6 +29,7 @@ function App(){
           <Route path={"/tours"} element={<Tours />} />
           <Route path={"/tours/:tourSlug"} element={<Tour />} />
           <Route path={"/explore"} element={<Explore />} />
+          <Route path={"/explore/:destinationSlug"} element={<Explore />} />
           <Route path={"/plan-your-trip"} element={<PlanYourTrip />} />
         </Routes>
       </main>
