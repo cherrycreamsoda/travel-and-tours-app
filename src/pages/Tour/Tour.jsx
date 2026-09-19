@@ -35,7 +35,11 @@ function Tour() {
           selectedIndex={selectedDestinationIndex}
           onSelect={setSelectedDestinationIndex}
         />
-        <TourWidgets lat={tour.destinations[selectedDestinationIndex].lat} lon={tour.destinations[selectedDestinationIndex].lon} />
+        <TourWidgets
+          destinationName={tour.destinations[selectedDestinationIndex].name}
+          lat={tour.destinations[selectedDestinationIndex].lat}
+          lon={tour.destinations[selectedDestinationIndex].lon}
+        />
       </div>
       <TourDescription tour={tour} />
     </main>

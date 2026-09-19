@@ -1,0 +1,107 @@
+.weatherWidget {
+	width: 100%;
+	min-height: 210px;
+	box-sizing: border-box;
+	padding: 24px;
+}
+
+.loading {
+	color: var(--appMutedColor);
+}
+
+.weather {
+	display: grid;
+	width: 100%;
+	grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+	gap: 24px;
+}
+
+.weatherLeft {
+	display: grid;
+	min-width: 0;
+	gap: 24px;
+}
+
+.weatherHeader,
+.weatherDetails,
+.weatherRight {
+	display: flex;
+	align-items: center;
+	gap: 16px;
+}
+
+.weatherHeader {
+	color: var(--appMutedColor);
+	font-size: 0.9rem;
+}
+
+.weatherTemperature {
+	color: var(--appTextColor);
+	font-size: 3rem;
+	font-weight: bold;
+	line-height: 1;
+}
+
+.weatherDetails {
+	justify-content: flex-start;
+	gap: 32px;
+}
+
+.weatherRight {
+	flex-direction: column;
+	justify-content: center;
+	min-width: 0;
+	padding-left: 24px;
+	border-left: 1px solid var(--appBorderColor);
+	color: var(--appMutedColor);
+	font-size: 1.5rem;
+	text-align: center;
+}
+
+.weatherIcon {
+	width: clamp(72px, 9vw, 110px);
+	height: clamp(72px, 9vw, 110px);
+	flex: 0 0 auto;
+	color: var(--appTextColor);
+}
+
+.weatherRight strong {
+	max-width: 100%;
+	color: var(--appTextColor);
+	font-size: clamp(1rem, 1.8vw, 1.9rem);
+	line-height: 1;
+}
+
+.weatherDetails div {
+	display: grid;
+	gap: 6px;
+}
+
+.weatherDetails span {
+	color: var(--appMutedColor);
+	font-size: 0.85rem;
+}
+
+.weatherDetails strong {
+	color: var(--appTextColor);
+}
+
+@media (max-width: 600px) {
+	.weatherWidget {
+		padding: 20px;
+	}
+
+	.weather {
+		grid-template-columns: minmax(0, 1fr) minmax(0, 0.8fr);
+		gap: 16px;
+	}
+
+	.weatherRight {
+		padding-left: 16px;
+	}
+
+	.weatherIcon {
+		width: 72px;
+		height: 72px;
+	}
+}
