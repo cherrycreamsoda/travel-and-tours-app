@@ -1,4 +1,5 @@
 import { useNavigate, useParams } from 'react-router-dom';
+import ExploreMap from './sections/ExploreMap';
 import destinations from '../../data/destinations';
 import './Explore.css';
 
@@ -26,7 +27,7 @@ function Explore() {
           ))}
         </ul>
       </aside>
-      <div className="exploreMap">{selectedDestination.name}</div>
+      <ExploreMap lat={selectedDestination.lat} lon={selectedDestination.lon} />
     </main>
   );
 }
