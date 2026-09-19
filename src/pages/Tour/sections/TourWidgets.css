@@ -14,3 +14,17 @@
   background: var(--appSecondaryBackground);
   color: var(--appMutedColor);
 }
+
+@media (max-width: 1024px) {
+  .tourWidgetsSection {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .tourWidgetsSection {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+}

@@ -5,24 +5,26 @@ function TourGallery({ destinations, selectedIndex, onSelect }) {
 
   return (
     <section className="tourImagesSection">
+      <aside className="tourDestinationList">
+        <h2>Destinations</h2>
+        <div>
+          {destinations.map((destination, index) => (
+            <button
+              className={index === selectedIndex ? 'selectedDestination' : ''}
+              key={destination.name}
+              onClick={() => onSelect(index)}
+              type="button"
+            >
+              {destination.name}
+            </button>
+          ))}
+        </div>
+      </aside>
       <div className="selectedTourImage">
         <img
           src={selectedDestination.image || null}
           alt={selectedDestination.name}
         />
-      </div>
-      <div className="tourImageList">
-        {destinations.map((destination, index) => (
-          <button
-            className={index === selectedIndex ? 'selectedThumbnail' : ''}
-            key={destination.name}
-            onClick={() => onSelect(index)}
-            type="button"
-          >
-            <img src={destination.image || null} alt={destination.name} />
-            <span>{destination.name}</span>
-          </button>
-        ))}
       </div>
     </section>
   );

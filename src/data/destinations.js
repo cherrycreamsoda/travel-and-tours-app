@@ -5,6 +5,8 @@ const destinations = [
     link: '/destinations/neelum-valley',
     name: 'Neelum Valley',
     price: 15000,
+    lat: 34.589128,
+    lon: 73.910694,
   },
   {
     image:
@@ -12,6 +14,8 @@ const destinations = [
     link: '/destinations/hunza-valley',
     name: 'Hunza Valley',
     price: 25000,
+    lat: 36.333,
+    lon: 74.666,
   },
   {
     image:
@@ -19,6 +23,8 @@ const destinations = [
     link: '/destinations/skardu',
     name: 'Skardu',
     price: 30000,
+    lat: 35.29028,
+    lon: 75.64444,
   },
   {
     image:
@@ -26,6 +32,8 @@ const destinations = [
     link: '/destinations/fairy-meadows',
     name: 'Fairy Meadows',
     price: 20000,
+    lat: 35.386853,
+    lon: 74.584161,
   },
   {
     image:
@@ -33,6 +41,8 @@ const destinations = [
     link: '/destinations/kumrat-valley',
     name: 'Kumrat Valley',
     price: 18000,
+    lat: 35.533,
+    lon: 72.217,
   },
   {
     image:
@@ -40,6 +50,8 @@ const destinations = [
     link: '/destinations/naran',
     name: 'Naran',
     price: 12000,
+    lat: 34.90611,
+    lon: 73.64944,
   },
   {
     image:
@@ -47,6 +59,8 @@ const destinations = [
     link: '/destinations/kaghan-valley',
     name: 'Kaghan Valley',
     price: 14000,
+    lat: 34.78028,
+    lon: 73.52417,
   },
   {
     image:
@@ -54,6 +68,8 @@ const destinations = [
     link: '/destinations/swat-valley',
     name: 'Swat Valley',
     price: 10000,
+    lat: 34.77167,
+    lon: 72.36,
   },
   {
     image:
@@ -61,6 +77,8 @@ const destinations = [
     link: '/destinations/chitral',
     name: 'Chitral',
     price: 22000,
+    lat: 35.84611,
+    lon: 71.78583,
   },
 ];
 

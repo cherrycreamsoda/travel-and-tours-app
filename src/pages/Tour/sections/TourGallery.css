@@ -1,5 +1,39 @@
 .tourImagesSection {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  gap: 12px;
   min-width: 0;
+}
+
+.tourDestinationList {
+  padding: 20px;
+  border: 1px solid var(--appBorderColor);
+  background: var(--appSecondaryBackground);
+}
+
+.tourDestinationList h2 {
+  margin: 0 0 16px;
+  font-size: 1.25rem;
+}
+
+.tourDestinationList > div {
+  display: grid;
+  gap: 12px;
+}
+
+.tourDestinationList button {
+  padding: 12px;
+  border: 1px solid var(--appBorderColor);
+  background: var(--appBackground);
+  color: var(--appTextColor);
+  text-align: left;
+  cursor: pointer;
+}
+
+.tourDestinationList button:hover,
+.tourDestinationList button:focus-visible,
+.tourDestinationList button.selectedDestination {
+  border-color: var(--ghostWhite);
 }
 
 .selectedTourImage {
@@ -16,47 +50,11 @@
   object-fit: cover;
 }
 
-.tourImageList {
-  display: flex;
-  gap: 12px;
-  margin-top: 12px;
-  overflow-x: auto;
-}
-
-.tourImageList button {
-  position: relative;
-  flex: 0 0 200px;
-  height: 125px;
-  padding: 0;
-  overflow: hidden;
-  border: 1px solid var(--appBorderColor);
-  background: var(--appSecondaryBackground);
-  cursor: pointer;
-}
-
-.tourImageList button.selectedThumbnail {
-  border-color: var(--ghostWhite);
-}
-
-.tourImageList img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.tourImageList span {
-  position: absolute;
-  top: 50%;
-  right: 0;
-  left: 0;
-  transform: translateY(-50%);
-  color: var(--ghostWhite);
-  text-align: center;
-  text-shadow: 0 1px 4px rgb(0 0 0 / 70%);
-}
-
 @media (max-width: 800px) {
+  .tourImagesSection {
+    grid-template-columns: 1fr;
+  }
+
   .selectedTourImage {
     height: 360px;
   }
