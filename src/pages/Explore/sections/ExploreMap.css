@@ -3,3 +3,8 @@
     width: 100%;
 }
 
+/* Marker popup styling overriding */
+.leaflet-popup-content-wrapper, .leaflet-popup-tip, .leaflet-popup-close-button{
+    background-color: black;
+    color: white;
+}

@@ -27,7 +27,7 @@ function Explore() {
           ))}
         </ul>
       </aside>
-      <ExploreMap lat={selectedDestination.lat} lon={selectedDestination.lon} />
+      <ExploreMap selectedDestinationPosition={[selectedDestination.lat , selectedDestination.lon]} />
     </main>
   );
 }
