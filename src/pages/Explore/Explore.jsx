@@ -6,8 +6,12 @@ import './Explore.css';
 function Explore() {
   const { destinationSlug } = useParams();
   const navigate = useNavigate();
-  const selectedDestination =
-    destinations.find((destination) => destination.link.endsWith(`/${destinationSlug}`)) || destinations[0];
+  const selectedDestinationLink =
+    destinations.find((destination) => destination.link.endsWith(`/${destinationSlug}`))?.link || destinations[0].link;
+
+  function navigateTo(link) {
+    navigate(`/explore/${link.split('/').pop()}`);
+  }
 
   return (
     <main className="explorePage">
@@ -17,8 +21,8 @@ function Explore() {
           {destinations.map((destination) => (
             <li key={destination.name}>
               <button
-                className={selectedDestination.name === destination.name ? 'selectedDestination' : ''}
-                onClick={() => navigate(`/explore/${destination.link.split('/').pop()}`)}
+                className={selectedDestinationLink === destination.link ? 'selectedDestination' : ''}
+                onClick={() => navigateTo(destination.link)}
                 type="button"
               >
                 {destination.name}
@@ -27,7 +31,7 @@ function Explore() {
           ))}
         </ul>
       </aside>
-      <ExploreMap selectedDestinationPosition={[selectedDestination.lat , selectedDestination.lon]} />
+      <ExploreMap selectedDestinationLink={selectedDestinationLink} navigateTo={navigateTo} />
     </main>
   );
 }
