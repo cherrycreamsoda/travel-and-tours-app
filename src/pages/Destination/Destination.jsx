@@ -10,7 +10,7 @@ function Destination() {
     destinations.find((destination) => destination.link.endsWith(`/${destinationSlug}`))?.link || destinations[0].link;
 
   function navigateTo(link) {
-    navigate(`/destinations/${link.split('/').pop()}`);
+    navigate(link);
   }
 
   return (
