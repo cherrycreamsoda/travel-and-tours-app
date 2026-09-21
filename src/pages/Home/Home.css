@@ -1,7 +1,7 @@
 .homePage {
   --homeRadius: 12px;
   min-height: calc(100vh - var(--pageTopOffset));
-  margin-top: -10px;
+  margin-top: -3px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -13,7 +13,7 @@
 .homeHero {
   position: relative;
   width: 100%;
-  min-height: calc(100vh - var(--pageTopOffset) - 26px);
+  min-height: calc(100vh - var(--pageTopOffset) - 34px);
   overflow: hidden;
   border: 1px solid var(--appBorderSoft);
   border-radius: var(--homeRadius);
