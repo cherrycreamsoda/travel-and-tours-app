@@ -27,6 +27,7 @@ function getTimeAgo(createdAt) {
 
 function CustomerFeedback() {
   const [testimonials, setTestimonials] = useState(testimonialsData);
+  const [feedbackError, setFeedbackError] = useState('');
   const [feedback, setFeedback] = useState({
     feedback: '',
     firstName: '',
@@ -47,6 +48,11 @@ function CustomerFeedback() {
 
   function handleSubmit(event) {
     event.preventDefault();
+    if (!feedback.feedback.trim() || !feedback.firstName.trim() || !feedback.lastName.trim() || !feedback.email.trim() || !feedback.rating) {
+      setFeedbackError('Please complete every field and choose a star rating.');
+      return;
+    }
+
     const submittedFeedback = {
       ...feedback,
       createdAt: new Date().toISOString(),
@@ -57,6 +63,7 @@ function CustomerFeedback() {
       submittedFeedback,
     ]);
     console.log('Customer feedback:', submittedFeedback);
+    setFeedbackError('');
   }
 
   return (
@@ -67,6 +74,7 @@ function CustomerFeedback() {
           Feedback
           <textarea
             name="feedback"
+            required
             value={feedback.feedback}
             onChange={handleChange}
           />
@@ -75,6 +83,7 @@ function CustomerFeedback() {
           First name
           <input
             name="firstName"
+            required
             type="text"
             value={feedback.firstName}
             onChange={handleChange}
@@ -84,6 +93,7 @@ function CustomerFeedback() {
           Last name
           <input
             name="lastName"
+            required
             type="text"
             value={feedback.lastName}
             onChange={handleChange}
@@ -93,6 +103,7 @@ function CustomerFeedback() {
           Email
           <input
             name="email"
+            required
             type="email"
             value={feedback.email}
             onChange={handleChange}
@@ -122,6 +133,9 @@ function CustomerFeedback() {
           Review
         </button>
       </form>
+      {feedbackError && (
+        <p className="feedbackValidation" role="alert">{feedbackError}</p>
+      )}
       <div className="testimonials">
         <h3>Testimonials</h3>
         <div className="testimonialsGrid">

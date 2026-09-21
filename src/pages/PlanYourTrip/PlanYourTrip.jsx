@@ -6,6 +6,7 @@ function PlanYourTrip() {
   const [selectedDestinations, setSelectedDestinations] = useState([]);
   const [isDestinationMenuOpen, setIsDestinationMenuOpen] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [plannerError, setPlannerError] = useState('');
   const destinationDropdownRef = useRef(null);
 
   useEffect(() => {
@@ -38,6 +39,11 @@ function PlanYourTrip() {
 
   function handleSubmit(event) {
     event.preventDefault();
+    if (!selectedDestinations.length) {
+      setPlannerError('Please select at least one destination.');
+      return;
+    }
+
     const formData = new FormData(event.currentTarget);
     const request = {
       departure: formData.get('departure'),
@@ -46,10 +52,11 @@ function PlanYourTrip() {
       email: formData.get('email'),
       note: formData.get('note'),
       destinations: selectedDestinations.map((destination) => destination.name),
-      totalPrice,
+      totalPrice: `PKR ${totalPrice.toLocaleString()}`,
     };
 
     console.log('Trip planning request:', request);
+    setPlannerError('');
     setIsDestinationMenuOpen(false);
     setIsSubmitted(true);
   }
@@ -64,7 +71,7 @@ function PlanYourTrip() {
         <div className="plannerBlock plannerRouteBlock">
           <label>
             Departure from
-            <input name="departure" type="text" />
+            <input name="departure" required type="text" />
           </label>
           <div className="plannerDestinationField">
             <span>Destinations</span>
@@ -94,7 +101,7 @@ function PlanYourTrip() {
                           type="checkbox"
                         />
                         <span>{destination.name}</span>
-                        <strong>${destination.price}</strong>
+                        <strong>PKR {destination.price.toLocaleString()}</strong>
                       </label>
                     );
                   })}
@@ -102,32 +109,35 @@ function PlanYourTrip() {
               )}
             </div>
           </div>
-          <strong className="plannerPrice">Show price: ${totalPrice}</strong>
+          <strong className="plannerPrice">Show price: PKR {totalPrice.toLocaleString()}</strong>
         </div>
         <div className="plannerBlock plannerNameBlock">
           <label>
             First Name
-            <input name="firstName" type="text" />
+            <input name="firstName" required type="text" />
           </label>
           <label>
             Last Name
-            <input name="lastName" type="text" />
+            <input name="lastName" required type="text" />
           </label>
         </div>
         <div className="plannerBlock">
           <label>
             Email Address
-            <input name="email" type="email" />
+            <input name="email" required type="email" />
           </label>
         </div>
         <div className="plannerBlock">
           <label>
             Note from customer
-            <textarea name="note" />
+            <textarea name="note" required />
           </label>
         </div>
         <button className="plannerSubmitButton" type="submit">Submit Trip Request</button>
       </form>
+      {plannerError && (
+        <p className="plannerValidation" role="alert">{plannerError}</p>
+      )}
       {isSubmitted && (
         <p className="plannerConfirmation" role="status">
           We will get in touch with you soon.
