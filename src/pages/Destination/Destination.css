@@ -1,6 +1,6 @@
 .destinationPage {
   display: grid;
-  min-height: calc(100vh - 48px);
+  min-height: calc(100vh - var(--pageTopOffset));
   grid-template-columns: 1fr 3fr;
   box-sizing: border-box;
 }
@@ -45,7 +45,7 @@
 
 .destinationMap {
   display: flex;
-  min-height: calc(100vh - 48px);
+  min-height: calc(100vh - var(--pageTopOffset));
   align-items: center;
   justify-content: center;
   background: var(--appSecondaryBackground);

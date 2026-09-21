@@ -1,34 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
 :root {
-  /* Light mode: color 1 is lightest and color 4 is darkest. */
-  --lightModeBg: #a577fd;
-  --lightModeColor1: #ede4fe;
-  --lightModeColor2: #ddc9ff;
-  --lightModeColor3: #caafff;
-  --lightModeColor4: #b892ff;
-
-  /* Dark mode: color 1 is lightest and color 4 is darkest. */
-  --darkModeBg: #160a35;
-  --darkModeColor1: #d0cfd8;
-  --darkModeColor2: #a29daf;
-  --darkModeColor3: #726d87;
-  --darkModeColor4: #463b5f;
-
-  --ghostWhite: #f5f7fb;
-  --appBackground: var(--lightModeBg);
-  --appTextColor: var(--lightModeColor1);
-  --appMutedColor: var(--lightModeColor4);
-  --appBorderColor: var(--lightModeColor3);
-  --appSecondaryBackground: var(--lightModeColor2);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --appBackground: var(--darkModeBg);
-    --appTextColor: var(--darkModeColor1);
-    --appMutedColor: var(--darkModeColor2);
-    --appBorderColor: var(--darkModeColor4);
-    --appSecondaryBackground: var(--darkModeColor4);
-  }
+  --appBackground: #171a1b;
+  --appTextColor: #e5ebeb;
+  --appMutedColor: #9aa5a5;
+  --appBorderColor: #3a4242;
+  --appBorderSoft: rgb(229 235 235 / 45%);
+  --appBorderStrong: rgb(229 235 235 / 70%);
+  --appSecondaryBackground: #24292a;
+  --appGlassBackground: rgb(23 26 27 / 78%);
+  --appGlassFill: rgb(229 235 235 / 12%);
+  --appInverseText: #fff;
+  --attentionLight: #00faf9;
+  --attentionDark: #064d49;
+  --appOverlayShadow: 0 2px 8px rgb(0 0 0 / 85%);
+  --imageLabelFont: 'Roboto', Arial, sans-serif;
+  --ghostWhite: var(--attentionLight);
 }
 
 body {

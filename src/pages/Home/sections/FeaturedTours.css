@@ -22,6 +22,7 @@
   box-sizing: border-box;
   overflow: hidden;
   border: 1px solid var(--appBorderColor);
+  border-radius: var(--homeRadius);
   background: var(--appSecondaryBackground);
   color: var(--appTextColor);
   text-align: left;
@@ -37,6 +38,7 @@
   height: 180px;
   margin-bottom: 16px;
   overflow: hidden;
+  border-radius: var(--homeRadius);
   background: var(--appBackground);
 }
 
@@ -54,17 +56,25 @@
   height: 180px;
   object-fit: cover;
   background: var(--appBackground);
+  filter: brightness(0.58);
 }
 
 .tourDestination span {
   position: absolute;
+  z-index: 1;
   top: 50%;
   right: 0;
   left: 0;
+  padding: 16px;
   transform: translateY(-50%);
-  color: var(--ghostWhite);
+  color: var(--appInverseText);
+  font-family: var(--imageLabelFont);
+  font-size: clamp(1.35rem, 3vw, 2.4rem);
+  font-weight: 300;
+  line-height: 1.05;
   text-align: center;
-  text-shadow: 0 1px 4px rgb(0 0 0 / 70%);
+  text-transform: uppercase;
+  text-shadow: var(--appOverlayShadow);
 }
 
 .tourDays,

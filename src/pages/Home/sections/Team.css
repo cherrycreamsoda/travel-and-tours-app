@@ -17,6 +17,7 @@
 .teamCard {
   padding: 20px;
   border: 1px solid var(--appBorderColor);
+  border-radius: var(--homeRadius);
   background: var(--appSecondaryBackground);
   text-align: left;
 }
@@ -31,6 +32,7 @@
   align-items: center;
   justify-content: center;
   margin-bottom: 16px;
+  border-radius: var(--homeRadius);
   background: var(--appBackground);
   color: var(--appMutedColor);
 }

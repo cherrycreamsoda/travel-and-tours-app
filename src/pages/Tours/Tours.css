@@ -1,6 +1,6 @@
 .toursPage {
-  min-height: calc(100vh - 48px);
-  padding: 24px;
+  min-height: calc(100vh - var(--pageTopOffset));
+  padding: 0 24px 24px;
   box-sizing: border-box;
 }
 
@@ -79,17 +79,25 @@
   height: 140px;
   object-fit: cover;
   background: var(--appSecondaryBackground);
+  filter: brightness(0.62);
 }
 
 .tourDestinationsList span {
   position: absolute;
+  z-index: 1;
   top: 50%;
   right: 0;
   left: 0;
+  padding: 12px;
   transform: translateY(-50%);
-  color: var(--ghostWhite);
+  color: var(--appInverseText);
+  font-family: var(--imageLabelFont);
+  font-size: clamp(1.25rem, 2.6vw, 2rem);
+  font-weight: 300;
+  line-height: 1.05;
   text-align: center;
-  text-shadow: 0 1px 4px rgb(0 0 0 / 70%);
+  text-transform: uppercase;
+  text-shadow: var(--appOverlayShadow);
 }
 
 .tourListDescription {
@@ -108,8 +116,8 @@
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  background: var(--appTextColor);
-  color: var(--appBackground);
+  background: var(--attentionLight);
+  color: var(--attentionDark);
   font-size: 1.25rem;
   text-decoration: none;
 }

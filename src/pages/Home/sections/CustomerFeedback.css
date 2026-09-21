@@ -36,6 +36,7 @@
   box-sizing: border-box;
   padding: 10px;
   border: 1px solid var(--appBorderColor);
+  border-radius: var(--homeRadius);
   background: var(--appSecondaryBackground);
   color: var(--appTextColor);
   font: inherit;
@@ -55,21 +56,24 @@
   width: 36px;
   height: 36px;
   border: 1px solid var(--appBorderColor);
+  border-radius: 6px;
   background: transparent;
   color: var(--appMutedColor);
   cursor: pointer;
 }
 
 .ratingStars button.selectedStar {
-  background: var(--appTextColor);
-  color: var(--appBackground);
+  background: var(--attentionLight);
+  color: var(--attentionDark);
 }
 
 .reviewButton {
   padding: 12px 24px;
-  border: 1px solid var(--appBorderColor);
-  background: var(--appTextColor);
-  color: var(--appBackground);
+  border: 4px solid var(--attentionLight);
+  border-radius: 999px;
+  box-sizing: border-box;
+  background: var(--attentionLight);
+  color: var(--attentionDark);
   cursor: pointer;
 }
 
@@ -92,6 +96,7 @@
 .testimonialCard {
   padding: 16px;
   border: 1px solid var(--appBorderColor);
+  border-radius: var(--homeRadius);
   background: var(--appSecondaryBackground);
 }
 

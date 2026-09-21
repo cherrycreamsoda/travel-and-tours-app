@@ -1,4 +1,5 @@
 .app {
+  --pageTopOffset: 88px;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -14,12 +15,21 @@
 }
 
 .appHeader {
-  position: relative;
-  border-bottom: 1px solid var(--appBorderColor);
+  position: fixed;
+  z-index: 10000;
+  top: 10px;
+  right: 10px;
+  left: 10px;
+  box-sizing: border-box;
+  min-height: 56px;
+  padding: 8px 24px;
+  border: 2px solid var(--attentionLight);
+  border-radius: 999px;
+  background: var(--attentionDark);
 }
 
 .appLogo {
-  color: var(--appTextColor);
+  color: var(--attentionLight);
   font-weight: bold;
   text-decoration: none;
 }
@@ -41,11 +51,12 @@
 .appNav a:focus-visible,
 .appLogo:hover,
 .appLogo:focus-visible {
-  color: var(--ghostWhite);
+  color: var(--attentionLight);
 }
 
 .pageContent {
   flex: 1;
+  padding-top: var(--pageTopOffset);
 }
 
 .appFooter {
@@ -56,4 +67,28 @@
 .appFooter p {
   margin: 0;
   color: var(--appMutedColor);
+}
+
+@media (max-width: 600px) {
+  .app {
+    --pageTopOffset: 124px;
+  }
+
+  .appHeader {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
+    border-radius: 24px;
+  }
+
+  .appNav {
+    position: static;
+    flex-wrap: wrap;
+    gap: 8px 16px;
+    transform: none;
+  }
+
+  .pageContent {
+    padding-top: var(--pageTopOffset);
+  }
 }

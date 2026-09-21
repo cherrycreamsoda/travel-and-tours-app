@@ -7,7 +7,6 @@ function Destinations() {
 
   return (
     <div className="destinationSection">
-      <h2>Featured destinations</h2>
       <div className="destinationSlider">
         <div className="destinationTrack">
           {destinationFeed.map((destination, index) => (

@@ -3,6 +3,7 @@
 	min-height: 210px;
 	box-sizing: border-box;
 	padding: 24px;
+	background: var(--attentionDark);
 }
 
 .loading {
@@ -62,7 +63,7 @@
 	width: clamp(72px, 9vw, 110px);
 	height: clamp(72px, 9vw, 110px);
 	flex: 0 0 auto;
-	color: var(--appTextColor);
+	color: var(--attentionLight);
 }
 
 .weatherRight strong {
