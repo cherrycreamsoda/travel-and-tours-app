@@ -11,8 +11,8 @@ const pages = [
     path: "/tours"
   },
   {
-    label: "Explore",
-    path: "/explore"
+    label: "Destinations",
+    path: "/destinations"
   },
   {
     label: "Plan Your Trip",

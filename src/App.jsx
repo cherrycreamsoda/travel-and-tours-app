@@ -1,7 +1,7 @@
 import { Route, Routes, Link } from 'react-router-dom';
 import './App.css';
 
-import Explore from './pages/Explore/Explore';
+import Destination from './pages/Destination/Destination';
 import Home from './pages/Home/Home';
 import PlanYourTrip from './pages/PlanYourTrip/PlanYourTrip';
 import Tours from './pages/Tours/Tours';
@@ -28,8 +28,8 @@ function App(){
           <Route path={"/"} element={<Home />} />
           <Route path={"/tours"} element={<Tours />} />
           <Route path={"/tours/:tourSlug"} element={<Tour />} />
-          <Route path={"/explore"} element={<Explore />} />
-          <Route path={"/explore/:destinationSlug"} element={<Explore />} />
+          <Route path={"/destinations"} element={<Destination />} />
+          <Route path={"/destinations/:destinationSlug"} element={<Destination />} />
           <Route path={"/plan-your-trip"} element={<PlanYourTrip />} />
         </Routes>
       </main>

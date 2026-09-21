@@ -9,7 +9,7 @@ function Home() {
   return (
     <div className="homePage">
       <div className="homeHero" />
-      <Link className="letsGoButton" to="/explore">
+      <Link className="letsGoButton" to="/destinations">
         Lets Go Together!
       </Link>
       <Destinations />

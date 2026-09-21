@@ -10,9 +10,11 @@ function WeatherWidget( { destinationName, lat , lon } ) {
       if (lat !== null && lon !== null) {
         const fetchWeather = async () => {
           try {
-            const response = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,relative_humidity_2m,apparent_temperature,weather_code,wind_speed_10m`)
+            const response = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,relative_humidity_2m,apparent_temperature,weather_code,is_day,wind_speed_10m`)
             const data = await response.json()
-            setWeather({temperature : data.current.temperature_2m , humidityPercentage:data.current.relative_humidity_2m , feelsLike : data.current.apparent_temperature , weatherIcon: weatherCodes[data.current.weather_code].icon , description: weatherCodes[data.current.weather_code].description })
+            const weatherCode = weatherCodes[data.current.weather_code]
+            const weatherIcon = data.current.is_day === 1 ? weatherCode.icon : weatherCode.nightIcon || weatherCode.icon
+            setWeather({temperature : data.current.temperature_2m , humidityPercentage:data.current.relative_humidity_2m , feelsLike : data.current.apparent_temperature , weatherIcon, description: weatherCode.description })
             console.log('[My Console] Weather data:', data)
           } catch (error) {
             console.error('[My Console] Error fetching weather:', error)

@@ -1,22 +1,22 @@
 import { useNavigate, useParams } from 'react-router-dom';
-import ExploreMap from './sections/ExploreMap';
+import DestinationMap from './sections/DestinationMap';
 import destinations from '../../data/destinations';
-import './Explore.css';
+import './Destination.css';
 
-function Explore() {
+function Destination() {
   const { destinationSlug } = useParams();
   const navigate = useNavigate();
   const selectedDestinationLink =
     destinations.find((destination) => destination.link.endsWith(`/${destinationSlug}`))?.link || destinations[0].link;
 
   function navigateTo(link) {
-    navigate(`/explore/${link.split('/').pop()}`);
+    navigate(`/destinations/${link.split('/').pop()}`);
   }
 
   return (
-    <main className="explorePage">
-      <aside className="exploreDestinations">
-        <h1>Explore destinations</h1>
+    <main className="destinationPage">
+      <aside className="destinationList">
+        <h1>Destinations</h1>
         <ul>
           {destinations.map((destination) => (
             <li key={destination.name}>
@@ -31,9 +31,9 @@ function Explore() {
           ))}
         </ul>
       </aside>
-      <ExploreMap selectedDestinationLink={selectedDestinationLink} navigateTo={navigateTo} />
+      <DestinationMap selectedDestinationLink={selectedDestinationLink} navigateTo={navigateTo} />
     </main>
   );
 }
 
-export default Explore;
+export default Destination;

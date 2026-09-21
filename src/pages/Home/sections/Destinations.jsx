@@ -22,8 +22,8 @@ function Destinations() {
           ))}
         </div>
       </div>
-      <Link className="exploreDestinationsButton" to="/explore">
-        Explore More Destinations
+      <Link className="destinationListButton" to="/destinations">
+        View More Destinations
       </Link>
     </div>
   );
