@@ -36,7 +36,7 @@
 }
 
 .plannerRouteBlock {
-  grid-template-columns: minmax(0, 1fr) minmax(0, 2fr) auto;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 2fr) minmax(150px, auto);
 }
 
 .plannerNameBlock {
@@ -45,7 +45,10 @@
 
 .plannerRouteBlock .plannerPrice {
   align-self: end;
+  min-width: 150px;
   color: var(--ghostWhite);
+  text-align: right;
+  white-space: nowrap;
 }
 
 .plannerBlock label {
@@ -104,18 +107,27 @@
   display: grid;
   gap: 4px;
   padding: 8px;
+  max-height: 280px;
+  overflow-y: auto;
   border: 1px solid var(--appBorderColor);
   border-radius: var(--appControlRadius);
   background: var(--appBackground);
   box-shadow: var(--appSurfaceShadow);
+  scrollbar-width: none;
 }
 
-.plannerDestinationOption {
+.plannerDestinationMenu::-webkit-scrollbar {
+  display: none;
+}
+
+.plannerBlock .plannerDestinationOption {
   display: grid;
-  grid-template-columns: auto 1fr auto;
+  grid-template-columns: 16px minmax(0, 1fr) auto;
   gap: 10px;
   align-items: center;
+  flex-direction: row;
   padding: 10px;
+  border-radius: var(--appControlRadius);
   cursor: pointer;
 }
 
@@ -123,10 +135,57 @@
   background: var(--appSecondaryBackground);
 }
 
+.plannerDestinationOption.selectedDestinationOption {
+  background: var(--appGlassFill);
+  color: var(--appInverseText);
+}
+
 .plannerDestinationOption input {
   width: 16px;
   height: 16px;
-  accent-color: var(--attentionLight);
+  box-sizing: border-box;
+  margin: 0;
+  appearance: none;
+  border: 1px solid var(--appMutedColor);
+  border-radius: 3px;
+  background: var(--appBorderColor);
+  cursor: pointer;
+  display: grid;
+  place-content: center;
+}
+
+.plannerDestinationOption input::before {
+  width: 8px;
+  height: 4px;
+  content: '';
+  border-bottom: 2px solid var(--attentionDark);
+  border-left: 2px solid var(--attentionDark);
+  transform: rotate(-45deg) scale(0);
+}
+
+.plannerDestinationOption input:checked {
+  border-color: var(--attentionLight);
+  background: var(--attentionLight);
+}
+
+.plannerDestinationOption input:checked::before {
+  transform: rotate(-45deg) scale(1);
+}
+
+.plannerDestinationOption input:focus-visible {
+  outline: 2px solid var(--attentionLight);
+  outline-offset: 2px;
+}
+
+.plannerDestinationOption > span {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.plannerDestinationOption > strong {
+  white-space: nowrap;
 }
 
 .plannerBlock textarea {
@@ -134,10 +193,37 @@
   resize: vertical;
 }
 
+.plannerSubmitButton {
+  justify-self: start;
+  padding: 12px 20px;
+  border: 1px solid var(--attentionLight);
+  border-radius: var(--appControlRadius);
+  background: var(--attentionLight);
+  color: var(--attentionDark);
+  cursor: pointer;
+  font: inherit;
+}
+
+.plannerConfirmation {
+  max-width: 900px;
+  margin: 16px auto 0;
+  padding: 14px 16px;
+  border: 1px solid var(--appBorderSoft);
+  border-radius: var(--appControlRadius);
+  background: var(--appGlassFill);
+  color: var(--appInverseText);
+  text-align: center;
+}
+
 @media (max-width: 650px) {
   .plannerRouteBlock,
   .plannerNameBlock {
     grid-template-columns: 1fr;
+  }
+
+  .plannerRouteBlock .plannerPrice {
+    min-width: 0;
+    text-align: left;
   }
 
 }

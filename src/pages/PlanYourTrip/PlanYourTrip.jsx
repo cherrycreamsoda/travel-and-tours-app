@@ -1,10 +1,23 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import destinations from '../../data/destinations';
 import './PlanYourTrip.css';
 
 function PlanYourTrip() {
   const [selectedDestinations, setSelectedDestinations] = useState([]);
   const [isDestinationMenuOpen, setIsDestinationMenuOpen] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const destinationDropdownRef = useRef(null);
+
+  useEffect(() => {
+    function closeDestinationMenu(event) {
+      if (destinationDropdownRef.current && !destinationDropdownRef.current.contains(event.target)) {
+        setIsDestinationMenuOpen(false);
+      }
+    }
+
+    document.addEventListener('mousedown', closeDestinationMenu);
+    return () => document.removeEventListener('mousedown', closeDestinationMenu);
+  }, []);
 
   function toggleDestination(destination) {
     setSelectedDestinations((currentDestinations) => {
@@ -23,13 +36,31 @@ function PlanYourTrip() {
     0,
   );
 
+  function handleSubmit(event) {
+    event.preventDefault();
+    const formData = new FormData(event.currentTarget);
+    const request = {
+      departure: formData.get('departure'),
+      firstName: formData.get('firstName'),
+      lastName: formData.get('lastName'),
+      email: formData.get('email'),
+      note: formData.get('note'),
+      destinations: selectedDestinations.map((destination) => destination.name),
+      totalPrice,
+    };
+
+    console.log('Trip planning request:', request);
+    setIsDestinationMenuOpen(false);
+    setIsSubmitted(true);
+  }
+
   return (
     <main className="planYourTripPage">
       <header className="plannerHeader">
         <h1>Planner</h1>
         <p>Build a trip around the destinations you want to visit.</p>
       </header>
-      <form className="plannerForm">
+      <form className="plannerForm" onSubmit={handleSubmit}>
         <div className="plannerBlock plannerRouteBlock">
           <label>
             Departure from
@@ -37,8 +68,10 @@ function PlanYourTrip() {
           </label>
           <div className="plannerDestinationField">
             <span>Destinations</span>
-            <div className="plannerDestinationDropdown">
+            <div className="plannerDestinationDropdown" ref={destinationDropdownRef}>
               <button
+                aria-expanded={isDestinationMenuOpen}
+                aria-haspopup="listbox"
                 className="plannerDestinationTrigger"
                 onClick={() => setIsDestinationMenuOpen((isOpen) => !isOpen)}
                 type="button"
@@ -49,12 +82,12 @@ function PlanYourTrip() {
                 <span>{isDestinationMenuOpen ? '⌃' : '⌄'}</span>
               </button>
               {isDestinationMenuOpen && (
-                <div className="plannerDestinationMenu">
+                <div aria-label="Select destinations" className="plannerDestinationMenu" role="listbox">
                   {destinations.map((destination) => {
                     const isSelected = selectedDestinations.includes(destination);
 
                     return (
-                      <label className="plannerDestinationOption" key={destination.name}>
+                      <label className={`plannerDestinationOption ${isSelected ? 'selectedDestinationOption' : ''}`} key={destination.name}>
                         <input
                           checked={isSelected}
                           onChange={() => toggleDestination(destination)}
@@ -93,7 +126,13 @@ function PlanYourTrip() {
             <textarea name="note" />
           </label>
         </div>
+        <button className="plannerSubmitButton" type="submit">Submit Trip Request</button>
       </form>
+      {isSubmitted && (
+        <p className="plannerConfirmation" role="status">
+          We will get in touch with you soon.
+        </p>
+      )}
     </main>
   );
 }
