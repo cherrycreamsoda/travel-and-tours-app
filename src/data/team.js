@@ -1,27 +1,31 @@
 const team = [
   {
-    name: 'Member 1',
-    image: 'Image 1',
-    position: 'Position 1',
-    description: 'Description about member 1.',
+    name: 'Ahmed Raza Khan',
+    image: 'https://i.pravatar.cc/300?img=12',
+    position: 'CEO & Founder',
+    description:
+      'With over 15 years in Pakistan\'s tourism industry, Ahmed founded the company to showcase the beauty of the Northern Areas and share the country\'s culture with travelers from around the world.',
   },
   {
-    name: 'Member 2',
-    image: 'Image 2',
-    position: 'Position 2',
-    description: 'Description about member 2.',
+    name: 'Ayesha Malik',
+    image: 'https://i.pravatar.cc/300?img=47',
+    position: 'Operations Manager',
+    description:
+      'Ayesha oversees day-to-day operations and logistics, making sure every trip from Islamabad to Skardu runs smoothly. She is passionate about sustainable, community-based tourism.',
   },
   {
-    name: 'Member 3',
-    image: 'Image 3',
-    position: 'Position 3',
-    description: 'Description about member 3.',
+    name: 'Bilal Hussain',
+    image: 'https://i.pravatar.cc/300?img=33',
+    position: 'Senior Tour Guide',
+    description:
+      'A native of Hunza Valley, Bilal has led trekking and cultural expeditions across the Karakoram range for over a decade, and speaks fluent Urdu, English, and Burushaski.',
   },
   {
-    name: 'Member 4',
-    image: 'Image 4',
-    position: 'Position 4',
-    description: 'Description about member 4.',
+    name: 'Imran Sheikh',
+    image: 'https://i.pravatar.cc/300?img=53',
+    position: 'Driver & Logistics Lead',
+    description:
+      'Imran has safely navigated the Karakoram Highway and northern mountain routes for 12 years, and is known by clients for his steady hand and deep knowledge of local roads.',
   },
 ];
 

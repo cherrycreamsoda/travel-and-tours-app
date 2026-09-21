@@ -9,7 +9,7 @@ function Team() {
         {team.map((member) => (
           <article className="teamCard" key={member.name}>
             <h3>{member.position}</h3>
-            <div className="teamImage">{member.image}</div>
+            <img className="teamImage" src={member.image} alt={member.name} />
             <p>{member.description}</p>
             <span>{member.name}</span>
           </article>

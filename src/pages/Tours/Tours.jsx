@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import tours from '../../data/tours';
 import './Tours.css';
+import { GoArrowUpRight } from 'react-icons/go';
 
 function Tours() {
   return (
@@ -30,7 +31,7 @@ function Tours() {
             </ul>
             <p className="tourListDescription">{tour.description}</p>
             <Link className="tourDetailsButton" to={tour.link}>
-              ↗
+              <GoArrowUpRight />
             </Link>
           </article>
         ))}
