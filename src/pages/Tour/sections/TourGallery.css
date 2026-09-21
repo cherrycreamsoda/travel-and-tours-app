@@ -8,6 +8,7 @@
 .tourDestinationList {
   padding: 20px;
   border: 1px solid var(--appBorderColor);
+  border-radius: var(--appRadius);
   background: var(--appSecondaryBackground);
 }
 
@@ -24,6 +25,7 @@
 .tourDestinationList button {
   padding: 12px;
   border: 1px solid var(--appBorderColor);
+  border-radius: var(--appControlRadius);
   background: var(--appBackground);
   color: var(--appTextColor);
   text-align: left;
@@ -40,6 +42,8 @@
   position: relative;
   height: 460px;
   overflow: hidden;
+  border: 1px solid var(--appBorderColor);
+  border-radius: var(--appRadius);
   background: var(--appSecondaryBackground);
 }
 

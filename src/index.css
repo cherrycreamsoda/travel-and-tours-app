@@ -7,6 +7,8 @@
   --appBorderColor: #3a4242;
   --appBorderSoft: rgb(229 235 235 / 45%);
   --appBorderStrong: rgb(229 235 235 / 70%);
+  --appRadius: 12px;
+  --appControlRadius: 6px;
   --appSecondaryBackground: #24292a;
   --appGlassBackground: rgb(23 26 27 / 78%);
   --appGlassFill: rgb(229 235 235 / 12%);
@@ -14,13 +16,15 @@
   --attentionLight: #00faf9;
   --attentionDark: #064d49;
   --appOverlayShadow: 0 2px 8px rgb(0 0 0 / 85%);
-  --imageLabelFont: 'Roboto', Arial, sans-serif;
+  --appSurfaceShadow: 0 8px 20px rgb(0 0 0 / 25%);
+  --appFont: 'Roboto', Arial, sans-serif;
+  --imageLabelFont: var(--appFont);
   --ghostWhite: var(--attentionLight);
 }
 
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: var(--appFont);
   background: var(--appBackground);
   color: var(--appTextColor);
   -webkit-font-smoothing: antialiased;

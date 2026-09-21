@@ -1,9 +1,20 @@
-.mapContainer{
-    height: 100%;
+.mapContainer {
     width: 100%;
+    height: 100%;
 }
 
-.leaflet-popup-content-wrapper, .leaflet-popup-tip, .leaflet-popup-close-button{
-    background-color: black;
-    color: white;
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip {
+    border: 1px solid var(--appBorderSoft);
+    border-radius: var(--appControlRadius);
+    background-color: var(--appSecondaryBackground);
+    color: var(--appTextColor);
+}
+
+.leaflet-popup-close-button {
+    color: var(--appMutedColor) !important;
+}
+
+.leaflet-popup-content {
+    margin: 12px;
 }

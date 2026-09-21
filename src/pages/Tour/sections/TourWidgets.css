@@ -10,7 +10,9 @@
   min-height: 210px;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
   border: 1px solid var(--appBorderColor);
+  border-radius: var(--appRadius);
   background: var(--appSecondaryBackground);
   color: var(--appMutedColor);
 }

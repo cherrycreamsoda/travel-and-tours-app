@@ -25,7 +25,8 @@
   padding: 8px 24px;
   border: 2px solid var(--attentionLight);
   border-radius: 999px;
-  background: var(--attentionDark);
+  background: color-mix(in srgb, var(--attentionDark) 70%, transparent);
+  backdrop-filter: blur(6px);
 }
 
 .appLogo {
@@ -37,21 +38,29 @@
 .appNav {
   position: absolute;
   left: 50%;
-  display: flex;
-  gap: 24px;
+  display: block;
   transform: translateX(-50%);
 }
 
-.appNav a {
+.appNavLinks {
+  display: flex;
+  gap: 24px;
+}
+
+.appNavLinks a {
   color: var(--appTextColor);
   text-decoration: none;
 }
 
-.appNav a:hover,
-.appNav a:focus-visible,
+.appNavLinks a:hover,
+.appNavLinks a:focus-visible,
 .appLogo:hover,
 .appLogo:focus-visible {
   color: var(--attentionLight);
+}
+
+.menuToggle {
+  display: none;
 }
 
 .pageContent {
@@ -69,26 +78,73 @@
   color: var(--appMutedColor);
 }
 
-@media (max-width: 600px) {
+@media (max-aspect-ratio: 1 / 1) {
   .app {
     --pageTopOffset: 124px;
   }
 
   .appHeader {
-    align-items: flex-start;
-    flex-direction: column;
-    gap: 8px;
-    border-radius: 24px;
+    min-height: 56px;
   }
 
   .appNav {
-    position: static;
-    flex-wrap: wrap;
-    gap: 8px 16px;
+    right: 24px;
+    left: auto;
     transform: none;
   }
 
-  .pageContent {
-    padding-top: var(--pageTopOffset);
+  .menuToggle {
+    display: grid;
+    width: 32px;
+    height: 32px;
+    gap: 5px;
+    align-content: center;
+    padding: 6px;
+    border: 1px solid var(--appBorderSoft);
+    border-radius: 6px;
+    background: var(--appGlassFill);
+    cursor: pointer;
+  }
+
+  .menuToggle span {
+    display: block;
+    height: 2px;
+    background: var(--appInverseText);
+    transition: transform 180ms ease, opacity 180ms ease;
+  }
+
+  .appNav.isOpen .menuToggle span:first-child {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .appNav.isOpen .menuToggle span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .appNav.isOpen .menuToggle span:last-child {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  .appNavLinks {
+    position: absolute;
+    top: 44px;
+    right: 0;
+    display: none;
+    min-width: 180px;
+    gap: 0;
+    padding: 8px;
+    border: 1px solid var(--appBorderSoft);
+    border-radius: 8px;
+    background: var(--appGlassBackground);
+    box-shadow: var(--appSurfaceShadow);
+    backdrop-filter: blur(6px);
+  }
+
+  .appNav.isOpen .appNavLinks {
+    display: grid;
+  }
+
+  .appNavLinks a {
+    padding: 10px 12px;
   }
 }
