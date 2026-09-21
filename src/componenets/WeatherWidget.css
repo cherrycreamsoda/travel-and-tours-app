@@ -1,4 +1,5 @@
 .weatherWidget {
+	position: relative;
 	width: 100%;
 	min-height: 210px;
 	box-sizing: border-box;
@@ -8,6 +9,17 @@
 
 .loading {
 	color: var(--appMutedColor);
+}
+
+.weatherError {
+	position: absolute;
+	 top: 50%;
+	 right: 24px;
+	 left: 24px;
+	padding: 16px;
+	transform: translateY(-50%);
+	color: var(--appInverseText);
+	text-align: center;
 }
 
 .weather {
