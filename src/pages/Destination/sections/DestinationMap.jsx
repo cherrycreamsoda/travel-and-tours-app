@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { MapContainer, Marker, Popup, TileLayer, useMap } from 'react-leaflet'
 import { Icon } from 'leaflet'
 import 'leaflet/dist/leaflet.css'
@@ -24,42 +24,54 @@ function MapController({ selectedDestinationLink, markers }) {
 function DestinationMap({ selectedDestinationLink, navigateTo }) {
   const mapCenter = [30, 70]
   const markerIcon = new Icon({
-    iconUrl: "https://pinhead.ink/v25/pin.svg",
-    iconSize: [23, 23],
+    iconUrl: '/pin-48.svg',
+    iconSize: [45, 45],
+    iconAnchor: [22, 40],
   })
 
   const markers = useRef({})
+  const [mapStatus, setMapStatus] = useState({ isLoading: true, error: '' })
 
   return (
-    <MapContainer className='mapContainer' center={mapCenter} zoom={5}>
-      <TileLayer
-        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        url='https://tile.openstreetmap.org/{z}/{x}/{y}.png'
-      />
-
-      <MapController
-        selectedDestinationLink={selectedDestinationLink}
-        markers={markers}
-      />
-
-      {destinations.map((destination) => (
-        <Marker
-          key={destination.link}
-          ref={(ref) => {
-            markers.current[destination.link] = ref
-          }}
-          position={[destination.lat, destination.lon]}
-          icon={markerIcon}
+    <div className="destinationMapContainer">
+      <MapContainer className='mapContainer' center={mapCenter} zoom={5}>
+        <TileLayer
+          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+          url='https://tile.openstreetmap.org/{z}/{x}/{y}.png'
           eventHandlers={{
-            click: () => navigateTo(destination.link)
+            loading: () => setMapStatus({ isLoading: true, error: '' }),
+            load: () => setMapStatus((currentStatus) => ({ ...currentStatus, isLoading: false })),
+            tileload: () => setMapStatus((currentStatus) => ({ ...currentStatus, isLoading: false })),
+            tileerror: () => setMapStatus({ isLoading: false, error: 'Map could not be loaded. Please try again.' }),
           }}
-        >
-          <Popup>
-            <div className='markerPopup'>{destination.name}</div>
-          </Popup>
-        </Marker>
-      ))}
-    </MapContainer>
+        />
+
+        <MapController
+          selectedDestinationLink={selectedDestinationLink}
+          markers={markers}
+        />
+
+        {destinations.map((destination) => (
+          <Marker
+            key={destination.link}
+            ref={(ref) => {
+              markers.current[destination.link] = ref
+            }}
+            position={[destination.lat, destination.lon]}
+            icon={markerIcon}
+            eventHandlers={{
+              click: () => navigateTo(destination.link)
+            }}
+          >
+            <Popup>
+              <div className='markerPopup'>{destination.name}</div>
+            </Popup>
+          </Marker>
+        ))}
+      </MapContainer>
+      {mapStatus.isLoading && <div className="destinationMapStatus">Loading map...</div>}
+      {mapStatus.error && <div className="destinationMapStatus destinationMapError" role="alert">{mapStatus.error}</div>}
+    </div>
   )
 }
 
